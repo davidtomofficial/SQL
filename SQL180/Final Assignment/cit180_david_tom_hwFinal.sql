@@ -4,16 +4,27 @@
 -- December 10, 2023
 -------------------------------------------------------------------------------
 -- SQL Server
+-- Run only in a disposable coursework database: the setup drops and recreates
+-- the seven sample tables and views. Use a client that recognizes GO batches.
 
 -- Question 1:
--- f) Lines 9 through 99
--- g) Lines 105 through 156
--- h) Lines 162 throug 168
--- i) Lines 174 through 198
+-- f) Define the library schema
+-- g) Insert fictional sample data
+-- h) Display table contents
+-- i) Create and display views
 -------------------------------------------------------------------------------
 
 -- Question 1:
--- f) Lines 9 through 99
+-- f) Define the library schema
+
+-- Drop views before the tables they reference. IF EXISTS supports first runs.
+DROP VIEW IF EXISTS View_Genre;
+DROP VIEW IF EXISTS View_Book;
+DROP VIEW IF EXISTS View_Member;
+DROP VIEW IF EXISTS View_Staff;
+DROP VIEW IF EXISTS View_Event;
+DROP VIEW IF EXISTS View_Loan;
+DROP VIEW IF EXISTS View_MemberEvent;
 
 -- Dropping tables if they already exist
 DROP TABLE IF EXISTS MemberEvent;
@@ -23,6 +34,7 @@ DROP TABLE IF EXISTS Event;
 DROP TABLE IF EXISTS Staff;
 DROP TABLE IF EXISTS Book;
 DROP TABLE IF EXISTS Genre;
+GO
 
 -- Creating Genre Table
 CREATE TABLE Genre (
@@ -101,7 +113,7 @@ CREATE TABLE MemberEvent (
 );
 
 -- Question 1:
--- g) Lines 105 through 156
+-- g) Insert fictional sample data
 
 -- Inserting data into Genre Table
 INSERT INTO Genre (GenreID, GenreName, Description) VALUES
@@ -158,7 +170,7 @@ INSERT INTO MemberEvent (MemberEventID, MemberID, EventID, RegistrationDate, Att
 (8, 4, 4, '2022-07-16', 'Missed');
 
 -- Question 1:
--- h) Lines 162 throug 168
+-- h) Display table contents
 
 -- Displaying contents of each table
 SELECT * FROM Genre;
@@ -170,25 +182,24 @@ SELECT * FROM Loan;
 SELECT * FROM MemberEvent;
 
 -- Question 1:
--- i) Lines 174 through 198
+-- i) Create and display views
 
--- Verifying views do not exit and dropping if needed
-DROP VIEW View_Genre;
-DROP VIEW View_Book;
-DROP VIEW View_Member;
-DROP VIEW View_Staff;
-DROP VIEW View_Event;
-DROP VIEW View_Loan;
-DROP VIEW View_MemberEvent;
-
--- Creating views for each table
+-- Each CREATE VIEW must begin its own SQL Server batch.
+GO
 CREATE VIEW View_Genre AS SELECT * FROM Genre;
+GO
 CREATE VIEW View_Book AS SELECT * FROM Book;
+GO
 CREATE VIEW View_Member AS SELECT * FROM Member;
+GO
 CREATE VIEW View_Staff AS SELECT * FROM Staff;
+GO
 CREATE VIEW View_Event AS SELECT * FROM Event;
+GO
 CREATE VIEW View_Loan AS SELECT * FROM Loan;
+GO
 CREATE VIEW View_MemberEvent AS SELECT * FROM MemberEvent;
+GO
 
 -- Showing the data in the views
 SELECT * FROM View_Genre;
