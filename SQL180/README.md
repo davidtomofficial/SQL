@@ -1,23 +1,13 @@
-# SQL
+# CIT 180: Database Concepts and SQL
 
-> Historical educational example. See the [repository overview](../README.md) for context and current documentation status.
+> Historical educational example. See the [repository overview](../README.md) for context and validation limits.
 
-This repository contains an assortment of SQL code.
-These projects were course submissions that were intended to learn and practice coding in SQL while requiring little to no
-knowledge of the intended requirements.
-Check the README.md files within each directory for more information
+The [final assignment](Final%20Assignment/) contains the SQL Server library example,
+its database report, and its entity relationship diagram.
 
-# File descriptions
-- [Final assignment](Final%20Assignment/README.md)
-    - SQL Script
-    - Database Report
-    - ERD
-
-## Getting Started
-
-The [final assignment script](../SQL180/Final%20Assignment/cit180_david_tom_hwFinal.sql) identifies SQL Server as its target environment. Review the script and use a separate practice database before running it: it drops and recreates its example tables. The original coursework has not been retested against current database versions.
-
-Read the assignment README for the accompanying SQL script, report, and entity-relationship diagram.
+See the [repository setup instructions](../README.md) before running it. The script
+targets SQL Server 2016 or later, uses `GO` batch separators, and resets its sample
+tables and views. Use only a disposable coursework database.
 
 ## Contributing
 

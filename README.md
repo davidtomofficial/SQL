@@ -1,23 +1,55 @@
-# SQL
+# SQL coursework
 
 Historical SQL coursework covering database design, queries, and a final assignment with a report and entity-relationship diagram. Original work by [David Tom](https://github.com/davidtomofficial).
 
-**Status: Historical educational examples.** The setup notes and project descriptions reflect the original work; compatibility and correctness have not been revalidated against current environments. This collection is separate from current David Tom Solutions (DTS) and David Tom Publishing (DTP) offerings.
+**Status: Historical educational examples.** This collection is separate from current David Tom Solutions (DTS) and David Tom Publishing (DTP) offerings. Offline checks cover the revised batch structure and sample data; the full coursework script has not been retested against SQL Server.
 
-## File descriptions
+The [SQL180 final assignment](SQL180/Final%20Assignment/) models a fictional
+library with books, genres, members, staff, events, loans, and event registrations.
+It includes a SQL script, a database report, and an entity relationship diagram.
 
-- [SQL180](SQL180/README.md)
-      - Coursework involving SQL fundamentals, culminating with creation of SQL database involving ERD's and a report for the given system.
+## Requirements and setup
 
-## Getting Started
+The script targets **Microsoft SQL Server 2016 or later**. Use SQL Server Management
+Studio or `sqlcmd`, which recognize the script's `GO` batch separators. A C++
+compiler or `build-essential` is not required.
 
-The [final assignment script](SQL180/Final%20Assignment/cit180_david_tom_hwFinal.sql) identifies SQL Server as its target environment. Review the script and use a separate practice database before running it: it drops and recreates its example tables. The original coursework has not been retested against current database versions.
+1. Create an empty, disposable database for the assignment on a local/test SQL
+   Server instance.
+2. Connect to that database explicitly. Confirm it is the coursework database.
+3. Open `SQL180/Final Assignment/cit180_david_tom_hwFinal.sql` and run the whole
+   script with a client that recognizes `GO`.
+4. Review the seven tables and seven views printed at the end.
 
-Read the assignment README for the accompanying SQL script, report, and entity-relationship diagram.
+**The script drops and recreates its sample tables and views.** Run it only in a
+disposable database. Re-running it resets the sample data.
+
+For `sqlcmd`, replace the server and database placeholders with your disposable
+test environment:
+
+```sh
+sqlcmd -S "YOUR_TEST_SERVER" -d "YOUR_DISPOSABLE_DATABASE" -E -b -i "SQL180/Final Assignment/cit180_david_tom_hwFinal.sql"
+```
+
+`-E` uses integrated authentication; choose your environment's supported
+authentication method when needed. `-b` returns a failing exit status for SQL
+errors. Applications sending commands directly through a database driver must
+split batches themselves because `GO` is a client command, not SQL syntax.
+
+## Validation
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+The offline tests check SQL Server view-batch structure and exercise the shared
+table/fixture SQL in a temporary in-memory SQLite database. These checks do not
+replace running the full script twice against SQL Server. See the
+[assignment README](SQL180/Final%20Assignment/README.md) for expected results.
 
 ## Contributing
 
-See the repository-local [contribution guide](CONTRIBUTING.md) for reporting issues and submitting focused pull requests while preserving the educational context.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for changes and validation expectations.
 
 ## Authors
 

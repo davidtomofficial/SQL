@@ -1,26 +1,44 @@
+# CIT 180 final assignment: Library database
 
-# SQL
+> Historical educational example. See the [repository overview](../../README.md) for context and validation limits.
 
-> Historical educational example. See the [repository overview](../../README.md) for context and current documentation status.
+Coursework by David Tom, originally dated December 10, 2023.
 
-This repository contains an assortment of SQL code.
-These projects were course submissions that were intended to learn and practice coding in SQL while requiring little to no
-knowledge of the intended requirements.
-Check the README.md files within each directory for more information
+| File | Purpose |
+| --- | --- |
+| [cit180_david_tom_hwFinal.sql](cit180_david_tom_hwFinal.sql) | Recreate the sample SQL Server tables, insert fictional data, and show tables and views. |
+| [cit180_david_tom_hwFinal.docx](cit180_david_tom_hwFinal.docx) | Original database report. |
+| [cit180_ERD_hwFinal.drawio.pdf](cit180_ERD_hwFinal.drawio.pdf) | Original entity relationship diagram. |
 
-# File descriptions
-- [cit180_david_tom_hwFinal.sql](cit180_david_tom_hwFinal.sql)
-    - Clean/working code to generate dummy database and to analyze information.
-- [cit180_david_tom_hwFinal.docx](cit180_david_tom_hwFinal.docx)
-    - Well written database report describing fictitious database.
-- [cit180_ERD_hwFinal.drawio.pdf](cit180_ERD_hwFinal.drawio.pdf)
-    - Effective ERD with appropriate notation.
+## Run and verify
 
-## Getting Started
+Follow the [repository setup instructions](../../README.md). Use SQL Server 2016
+or later and a client that recognizes `GO` batches. This script **drops and
+recreates its sample tables and views**; use a disposable database.
 
-The [final assignment script](../../SQL180/Final%20Assignment/cit180_david_tom_hwFinal.sql) identifies SQL Server as its target environment. Review the script and use a separate practice database before running it: it drops and recreates its example tables. The original coursework has not been retested against current database versions.
+Run the complete script once in an empty database and once again in the same
+disposable database. Both runs should finish without missing-view or view-batch
+errors and produce these row counts:
 
-Read the assignment README for the accompanying SQL script, report, and entity-relationship diagram.
+| Table and corresponding `View_` view | Rows |
+| --- | ---: |
+| Genre | 4 |
+| Book | 4 |
+| Member | 4 |
+| Staff | 4 |
+| Event | 4 |
+| Loan | 4 |
+| MemberEvent | 8 |
+
+Each view should return the same rows as its table. The data is fictional and is
+intended for demonstrating relationships and queries, not a production library
+system. The original DOCX and PDF remain historical coursework artifacts.
+
+The script separates every `CREATE VIEW` into its own batch and drops existing
+views before rebuilding the tables. Microsoft documents these rules in
+[CREATE VIEW](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-view-transact-sql),
+[DROP VIEW](https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-view-transact-sql),
+and [GO](https://learn.microsoft.com/en-us/sql/t-sql/language-elements/sql-server-utilities-statements-go).
 
 ## Contributing
 
