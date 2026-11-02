@@ -2,7 +2,7 @@
 
 Historical SQL coursework covering database design, queries, and a final assignment with a report and entity-relationship diagram. Original work by [David Tom](https://github.com/davidtomofficial).
 
-**Status: Historical educational examples.** The setup notes and project descriptions reflect the original work; compatibility and correctness have not been revalidated against current environments. This collection is separate from current David Tom Solutions (DTS) and David Tom Publishing (DTP) offerings.
+**Status: Historical educational examples.** The setup notes and project descriptions reflect the original work; compatibility and correctness have not been revalidated against current environments.
 
 ## File descriptions
 
