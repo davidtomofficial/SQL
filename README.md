@@ -2,7 +2,7 @@
 
 Historical SQL coursework covering database design, queries, and a final assignment with a report and entity-relationship diagram. Original work by [David Tom](https://github.com/davidtomofficial).
 
-**Status: Historical educational examples.** This collection is separate from current David Tom Solutions (DTS) and David Tom Publishing (DTP) offerings. Offline checks cover the revised batch structure and sample data; the full coursework script has not been retested against SQL Server.
+**Status: Historical educational examples.** Offline checks cover the revised batch structure and sample data; the full coursework script has not been retested against SQL Server.
 
 The [SQL180 final assignment](SQL180/Final%20Assignment/) models a fictional
 library with books, genres, members, staff, events, loans, and event registrations.
